@@ -1,0 +1,24 @@
+<h2>Import Quizlet Set</h2>
+<% @conversion = Conversion.new(:quizlet_url => 'http://quizlet.com/set/415/')%>
+<% form_tag(conversions_url) do %>
+  <%= error_message_on(:conversion, :quizlet_url) %>
+  <p>
+    <label for="quizlet_url" class="required">Quizlet URL: </label>
+    <%= text_field(:conversion, :quizlet_url, :size => 40) %>
+  </p>
+  <p>
+    <label for="username" class="required">iKnow! username: </label>
+    <%= text_field(:conversion, :iknow_username, :size => 20) %>
+  </p>
+  <p class="from_language">
+    <label for="cue_language_code">From language: </label>
+    <small>eg: 'en'</small>
+    <%= text_field(:conversion, :cue_language_code, :size => 4) %>
+  </p>
+  <p class="to_language">
+    <label for="response_language_code">To language: </label>
+    <small>eg: 'de'</small>
+    <%= text_field(:conversion, :response_language_code, :size => 4) %>
+  </p>
+  <%= submit_tag('Make list!') %>
+<% end %>

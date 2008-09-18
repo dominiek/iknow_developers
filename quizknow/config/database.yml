@@ -1,0 +1,74 @@
+development: &defaults
+  adapter: mysql
+  database: quizknow_development
+  username: root
+  encoding: utf8
+
+test:
+  <<: *defaults
+  database: iknow_test
+
+qa:
+  <<: *defaults
+  database: iknow_production
+
+comdata:
+  <<: *defaults
+  database: iknow_production
+
+production:
+  <<: *defaults
+  database: iknow_production
+
+simulation:
+  <<: *defaults
+  database: iknow_simulation
+
+staging:
+  <<: *defaults
+  database: iknow_production
+
+dev:
+  <<: *defaults
+  database: iknow_dev
+
+mandarin:
+  <<: *defaults
+  database: iknow_production
+
+demo:
+  <<: *defaults
+  database: iknow_production
+
+chinadev:
+  <<: *defaults
+  database: iknow_dev
+
+chinastaging:
+  <<: *defaults
+  database: iknow_production
+
+chinaproduction:
+  <<: *defaults
+  database: iknow_production
+
+db01s:
+  adapter: mysql
+  database: iknow_production
+  username: root
+  host: 127.0.0.1
+
+db3_production_localhost:
+  <<: *defaults
+  database: iknow_production
+  host: 127.0.0.1
+
+db4_production_localhost:
+  <<: *defaults
+  database: iknow_production
+  host: 127.0.0.1
+
+learning_event_migration_db:
+  <<: *defaults
+  database: learning_event_migration_db
+  host: 127.0.0.1

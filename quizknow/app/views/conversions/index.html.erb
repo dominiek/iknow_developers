@@ -1,0 +1,21 @@
+
+<div class="recent">
+  <h2>Recent Lists</h2>
+  <ul>
+    <% Conversion.find(:all, :order => 'id DESC').each do |conversion| %>
+      <li>
+        <%= link_to('Launch iKnow!', '#', :class => 'launch') %>
+        <div>
+        <%= link_to(conversion.quizlet_name, conversion.quizlet_url.to_s) %>
+        <small><%= truncate(conversion.quizlet_description, 50) %></small>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+<div class="new">
+  <%= render(:partial => 'new') %>
+</div>
+
+<div class="clear"></div>
