@@ -10,10 +10,9 @@ class FlickrGetPhoto
   
     # search complete cue or subset
     tags.downcase!
-    image_url = get_flickr_image_for_keywords(tags)
-    if image_url.blank?
-      image_url = get_flickr_image_for_tags(tags.gsub(/,.+/, '').strip.gsub(/\s+/, ','))
-    end
+    image_url = get_flickr_image_for_tags(tags)
+    image_url ||= get_flickr_image_for_keywords(tags)
+    image_url ||= get_flickr_image_for_tags(tags.gsub(/,.+/, '').strip.gsub(/\s+/, ','))
     return unless image_url
     
     image_url 

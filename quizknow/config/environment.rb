@@ -58,5 +58,3 @@ Rails::Initializer.run do |config|
   # config.active_record.default_timezone = :utc
 end
 
-IKNOW_OAUTH_KEY = '2AnPfyKc5cMTTgo3Tib1Ag'
-IKNOW_OAUTH_SECRET = 'NDMfTzRwcNmQvY46Ata6Q4d7xwq1KXd5AJbqKMPR4Q'

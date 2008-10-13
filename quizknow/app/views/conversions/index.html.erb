@@ -4,7 +4,7 @@
   <ul>
     <% Conversion.find(:all, :order => 'id DESC').each do |conversion| %>
       <li>
-        <%= link_to('Launch iKnow!', '#', :class => 'launch') %>
+        <%= link_to('Launch iKnow!', "http://faith04.cerego.co.jp/list/#{conversion.iknow_list_id}", :class => 'launch') %>
         <div>
         <%= link_to(conversion.quizlet_name, conversion.quizlet_url.to_s) %>
         <small><%= truncate(conversion.quizlet_description, 50) %></small>

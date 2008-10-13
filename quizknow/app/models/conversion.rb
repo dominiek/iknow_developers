@@ -59,8 +59,8 @@ class Conversion < ActiveRecord::Base
     list_params = {
       "list[name]"        => self.quizlet_name,
       "list[description]" => self.quizlet_description,
-      "list[cue_language_code]"      => self.cue_language_code || 'en',
-      "list[response_language_code]" => self.response_language_code || 'ja'
+      "list[language]"      => self.cue_language_code || 'en',
+      "list[translation_language]" => self.response_language_code || 'ja'
     }
     @attribution.each do |key, value|
       list_params["attribution[#{key}]"] = value
@@ -81,8 +81,8 @@ class Conversion < ActiveRecord::Base
     @definitions.keys.each do |cue|
       item_param = {
         "cue[text]"                   => cue,
-        "cue[cue_language_code]"      => self.cue_language_code || 'en',
-        "cue[response_language_code]" => self.response_language_code || 'ja',
+        "cue[language]"      => self.cue_language_code || 'en',
+        "response[language]" => self.response_language_code || 'ja',
         "response[text]"              => @definitions[cue],
         "list_id"                     => list_id
       }
@@ -90,13 +90,13 @@ class Conversion < ActiveRecord::Base
       puts [:post_item, response].inspect
 
       item_id = response.body
-      add_image_to_item(@definitions[cue], list_id, item_id)
-      add_sound_to_item(self.cue_language_code, cue, item_id)
+      add_image_to_item(cue, @definitions[cue], list_id, item_id)
+      #add_sound_to_item(self.cue_language_code, cue, item_id) # Adding the item autogenerates TTS 
     end
   end
 
-  def add_image_to_item(item_text, list_id, item_id)
-    image_url = FlickrGetPhoto.determine_flickr_cue_image(item_text)
+  def add_image_to_item(item_cue_text, item_response_text, list_id, item_id)
+    image_url = FlickrGetPhoto.determine_flickr_cue_image(item_cue_text) || FlickrGetPhoto.determine_flickr_cue_image(item_response_text)
     if image_url
       image_param = {
         "image[url]" => image_url,
@@ -112,6 +112,7 @@ class Conversion < ActiveRecord::Base
   def add_sound_to_item(language_code, text, item_id)
     text_to_speech = IknowTextToSpeech.new(language_code)
     sound_url = text_to_speech.text_to_mp3_url(text)
+    puts sound_url
     if sound_url
       sound_params = {
         "sound[url]" => sound_url

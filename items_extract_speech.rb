@@ -4,7 +4,7 @@ require 'rexml/document'
 require 'mechanize'
 
 agent = WWW::Mechanize.new
-page = agent.get("http://api.staging.iknow.co.jp/items/extract.xml", :text => ARGV[0])
+page = agent.get("http://wapi.iknow.co.jp/items/extract.xml", :text => ARGV[0])
 xml = REXML::Document.new(page.body).root
 words = {}
 xml.elements.to_a('/vocabulary/items/item').each do |item|
