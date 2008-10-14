@@ -7,11 +7,11 @@ $user_id = 1;
 $server = array(
     'consumer_key' => 'ZxPXCNRM9mGzv8K3m6NOg',
     'consumer_secret' => 'R1Ee8nGp7WBxmp3ivMiYbzcNwtLjouIvOpMPlK38',
-    'server_uri' => 'http://faith04.cerego.co.jp:3500/',
+    'server_uri' => 'http://api.iknow.co.jp/',
     'signature_methods' => array('HMAC-SHA1', 'PLAINTEXT'),
-    'request_token_uri' => 'http://faith04.cerego.co.jp:3500/oauth/request_token',
-    'authorize_uri' => 'http://faith04.cerego.co.jp/oauth/authorize',
-    'access_token_uri' => 'http://faith04.cerego.co.jp:3500/oauth/access_token'
+    'request_token_uri' => 'http://api.iknow.co.jp/oauth/request_token',
+    'access_token_uri' => 'http://api.iknow.co.jp/oauth/access_token',
+    'authorize_uri' => 'http://www.iknow.co.jp/oauth/authorize'
 );
 
 // Save the server in the the OAuthStore

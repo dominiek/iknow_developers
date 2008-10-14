@@ -5,7 +5,7 @@ require_once('oauth-php-r50/library/OAuthRequester.php');
 require_once('config.inc.php');
 
 // The request uri being called.
-$request_uri = 'http://faith04.cerego.co.jp:3500/lists';
+$request_uri = 'http://api.iknow.co.jp/lists';
 
 // This is a little bit silly, I know, my PHP friends
 $params = array(
