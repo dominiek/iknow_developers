@@ -1,7 +1,0 @@
-<h2>Add a sentence to item [% c.stash.item.cue.text %] ([% c.stash.item.cue.language %])</h2>
-
-<form action="[% c.uri_for('/sentences/create') %]" method="post" accept-charset="utf-8">
-	<p><label for="sentence">Sentence</label><input type="text" name="sentence" value="[% c.stash.sentence %]" id="sentence"></p>
-	<input type="hidden" name="item_id" value="[% c.stash.item.id %]" id="item_id">
-	<p><input type="submit" value="Save &rarr;"></p>
-</form>
