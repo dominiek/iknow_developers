@@ -17,7 +17,8 @@ config.action_view.cache_template_extensions         = false
 # Don't care if the mailer can't send
 config.action_mailer.raise_delivery_errors = false
 
-IKNOW_HOST_WITH_PORT = 'faith04.cerego.co.jp:3500'
+IKNOW_HOST_WITH_PORT = 'faith04.cerego.co.jp'
+IKNOW_API_HOST_WITH_PORT = 'faith04.cerego.co.jp:3500'
 
 IKNOW_OAUTH_KEY = 'LKwmSz63kn9S0vo2z8WCw'
 IKNOW_OAUTH_SECRET = 'gnIZkhZoezhpBZdH57P8xbKbpWcLfzhWQC1IMU2xs'

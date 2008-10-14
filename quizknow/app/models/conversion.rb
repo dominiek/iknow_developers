@@ -7,7 +7,7 @@ class Conversion < ActiveRecord::Base
     begin
       self.quizlet_definitions = export_quizlet_set
       self.iknow_list_id       = create_iknow_list
-      #self.iknow_list_url = "http://#{IKNOW_HOST_WITH_PORT}/#{create_iknow_list}"
+      #self.iknow_list_url = "http://#{IKNOW_API_HOST_WITH_PORT}/#{create_iknow_list}"
     rescue WWW::Mechanize::ResponseCodeError => http_error
       self.errors.add(:quizlet_url, "Could not connect to iKnow API or Quizlet server... (#{http_error.to_s})")
       return false
@@ -125,8 +125,8 @@ class Conversion < ActiveRecord::Base
   end
 
   def post_to_iknow(path, data)
-    #puts [ :post_to_iknow, "http://#{IKNOW_HOST_WITH_PORT}#{path}", data ].inspect
-    auth_token.to_access_token.post("http://#{IKNOW_HOST_WITH_PORT}#{path}", data)
+    #puts [ :post_to_iknow, "http://#{IKNOW_API_HOST_WITH_PORT}#{path}", data ].inspect
+    auth_token.to_access_token.post("http://#{IKNOW_API_HOST_WITH_PORT}#{path}", data)
   end
 
   def auth_token
